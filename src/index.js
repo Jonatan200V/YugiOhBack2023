@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const data = require('../data/data');
 const fs = require('fs');
-const bodyParser = require('body-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const sequelize = require('../db/db');
@@ -11,7 +10,6 @@ const router = require('../routes/deck.routes');
 app.use(express.json());
 app.use(cors());
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(router);
 app.get('/api/yugioh', (_, res) => {
   res.json(data);
@@ -49,8 +47,7 @@ const PORT = 3600;
 
 async function main() {
   try {
-    await sequelize.authenticate();
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     app.listen(PORT);
     console.log(`Estamoscorriendo en el servidor ${PORT}`);
   } catch (error) {}
