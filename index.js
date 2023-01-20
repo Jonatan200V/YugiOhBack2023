@@ -5,8 +5,9 @@ import cors from 'cors';
 import sequelize from './db/db.js';
 import Deck from './model/deck.model.js';
 import router from './routes/deck.routes.js';
-
+import dotenv from 'dotenv';
 const app = express();
+dotenv.config();
 app.use(express.json());
 app.use(cors());
 app.use(logger('dev'));
@@ -23,12 +24,12 @@ app.get('/api/yugioh/:id', (req, res) => {
   res.status(404).send('PAGE NOT FOUND');
 });
 
-const PORT = 3600;
+const PORT = process.env.PORT;
 
 async function main() {
   try {
     await sequelize.sync({ force: false });
-    app.listen(PORT);
+    app.listen(`0.0.0.0:${PORT}`);
     console.log(`Estamos corriendo en el servidor ${PORT}`);
   } catch (error) {
     console.log(error);
