@@ -31,8 +31,12 @@ app.post('/api/yugioh', (req, res) => {
 const PORT = 3600;
 
 async function main() {
-  await sequelize.sync({ force: false });
-  app.listen(PORT);
-  console.log(`Estamos corriendo en el servidor ${PORT}`);
+  try {
+    await sequelize.sync({ force: false });
+    app.listen(PORT);
+    console.log(`Estamos corriendo en el servidor ${PORT}`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 main();
