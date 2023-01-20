@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
 const sequelize = new Sequelize(
   'postgres://postgres:43486277@localhost:5432/ygo',
@@ -6,4 +6,4 @@ const sequelize = new Sequelize(
     loggin: false,
   }
 );
-module.exports = sequelize;
+export default sequelize;

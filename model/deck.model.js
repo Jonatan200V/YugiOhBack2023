@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db/db');
+import { DataTypes } from 'sequelize';
+import sequelize from '../db/db.js';
 
 const Deck = sequelize.define(
   'deck',
@@ -20,4 +20,4 @@ const Deck = sequelize.define(
     timestamps: false,
   }
 );
-module.exports = Deck;
+export default Deck;

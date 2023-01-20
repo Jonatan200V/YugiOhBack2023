@@ -1,6 +1,6 @@
-const Deck = require('../model/deck.model');
+import Deck from '../model/deck.model.js';
 
-const createDeck = async (req, res) => {
+export const createDeck = async (req, res) => {
   const { images, name } = req.body;
   try {
     await Deck.create({
@@ -12,15 +12,11 @@ const createDeck = async (req, res) => {
     res.status(401).json({ msg: error.message });
   }
 };
-const getDecks = async (req, res) => {
+export const getDecks = async (req, res) => {
   try {
     const decks = await Deck.findAll();
     res.json(decks);
   } catch (error) {
     console.log(error);
   }
-};
-module.exports = {
-  createDeck,
-  getDecks,
 };

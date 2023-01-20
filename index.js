@@ -1,12 +1,13 @@
-const express = require('express');
+import express from 'express';
+import data from './data/data.js';
+import fs from 'fs';
+import logger from 'morgan';
+import cors from 'cors';
+import sequelize from './db/db.js';
+import Deck from './model/deck.model.js';
+import router from './routes/deck.routes.js';
+
 const app = express();
-const data = require('../data/data');
-const fs = require('fs');
-const logger = require('morgan');
-const cors = require('cors');
-const sequelize = require('../db/db');
-const Deck = require('../model/deck.model');
-const router = require('../routes/deck.routes');
 app.use(express.json());
 app.use(cors());
 app.use(logger('dev'));

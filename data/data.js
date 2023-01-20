@@ -316,4 +316,4 @@ const data = [
       'https://res.cloudinary.com/di0jcyqyv/image/upload/v1673371594/images-users/u4fqqm3gokmb6s87asvo.jpg',
   },
 ];
-module.exports = data;
+export default data;
