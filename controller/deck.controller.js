@@ -17,6 +17,6 @@ export const getDecks = async (req, res) => {
     const decks = await Deck.findAll();
     res.json(decks);
   } catch (error) {
-    console.log(error);
+    res.status(401).json({ msg: error.message });
   }
 };
