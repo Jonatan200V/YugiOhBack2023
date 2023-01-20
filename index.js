@@ -22,11 +22,6 @@ app.get('/api/yugioh/:id', (req, res) => {
   }
   res.status(404).send('PAGE NOT FOUND');
 });
-app.post('/api/yugioh', (req, res) => {
-  const card = { id: data.length + 1, ...req.body };
-  data = [...data, card];
-  res.status(201).json(data);
-});
 
 const PORT = 3600;
 
