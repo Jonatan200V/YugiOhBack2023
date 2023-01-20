@@ -29,7 +29,7 @@ const PORT = process.env.PORT;
 async function main() {
   try {
     await sequelize.sync({ force: false });
-    app.listen(`0.0.0.0:${PORT}`);
+    app.listen(PORT);
     console.log(`Estamos corriendo en el servidor ${PORT}`);
   } catch (error) {
     console.log(error);
