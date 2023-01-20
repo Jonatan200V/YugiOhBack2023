@@ -33,6 +33,6 @@ const PORT = 3600;
 async function main() {
   await sequelize.sync({ force: false });
   app.listen(PORT);
-  console.log(`Estamoscorriendo en el servidor ${PORT}`);
+  console.log(`Estamos corriendo en el servidor ${PORT}`);
 }
 main();
