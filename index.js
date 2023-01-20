@@ -1,6 +1,5 @@
 import express from 'express';
 import data from './data/data.js';
-import fs from 'fs';
 import logger from 'morgan';
 import cors from 'cors';
 import sequelize from './db/db.js';
@@ -28,29 +27,12 @@ app.post('/api/yugioh', (req, res) => {
   data = [...data, card];
   res.status(201).json(data);
 });
-app.use((_, res) => {
-  fs.readFile(`index.html`, 'utf-8', (err, content) => {
-    if (err) {
-      console.log(err);
-      return res.send('xD');
-    } else {
-      return res
-        .status(404)
-        .contentType('image/jpg')
-        .contentType('html')
-        .send(content);
-    }
-  });
-  //   res.status(404).send(redireccion);
-});
 
 const PORT = 3600;
 
 async function main() {
-  try {
-    await sequelize.sync({ force: false });
-    app.listen(PORT);
-    console.log(`Estamoscorriendo en el servidor ${PORT}`);
-  } catch (error) {}
+  await sequelize.sync({ force: false });
+  app.listen(PORT);
+  console.log(`Estamoscorriendo en el servidor ${PORT}`);
 }
 main();
