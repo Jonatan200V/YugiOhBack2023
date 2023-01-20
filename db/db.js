@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 const sequelize = new Sequelize(
-  'postgres://postgres:43486277@localhost:5432/ygo',
+  'postgresql://postgres:JYpTFomYw6z53pYm0xLA@containers-us-west-86.railway.app:5991/railway',
   {
     loggin: false,
   }
